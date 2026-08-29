@@ -3,7 +3,7 @@ import Spinner from "./Spinner";
 import CountryItem from "./CountryItem";
 import Message from "./Message";
 // import PropTypes from 'prop-types'
-function CityList({ cities, isLoading }) {
+function CountryList({ cities, isLoading }) {
   const countries = cities.reduce((arr, city) => {
     if (!arr.map((el) => el.country).includes(city.country))
       return [...arr, { country: city.country, emoji: city.emoji }];
@@ -20,7 +20,7 @@ function CityList({ cities, isLoading }) {
   return (
     <ul className={styles.countryList}>
       {countries.map((country) => (
-        <CountryItem country={country} />
+        <CountryItem country={country} key={country.country}/>
       ))}
     </ul>
   );
@@ -31,4 +31,4 @@ function CityList({ cities, isLoading }) {
 //    isLoading: PropTypes.bool.isRequired,
 // }
 
-export default CityList;
+export default CountryList;
